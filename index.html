@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="css/base.css">
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<header>
+		<div class="head-top">
+			<a href="javascript:;" class="logo-a"><h1><img src="img/new_logo.jpg" alt=""></h1></a>
+			<ul>
+				<li><a href="javascript:;">首页</a></li>
+				<li><a href="javascript:;">报价管家</a></li>
+				<li><a href="javascript:;">觅糖产品</a></li>
+				<li><a href="javascript:;">高清案例</a></li>
+				<li><a href="javascript:;">720°VR鉴赏</a></li>
+				<li><a href="javascript:;">装修论坛</a></li>
+				<li><a href="javascript:;">TEL：400-7777-679</a></li>
+			</ul>
+		</div>
+	</header>
+	<div id="new-house">
+		<div class="house-change clear-fix">
+			<a href="javascript:;">新房整改</a>
+			<a href="javascript:;">新品-宝贝计划</a>
+			<a href="javascript:;">老房改造</a>
+			<a href="javascript:;">色彩搭配</a>
+		</div>
+		<div class="hide">
+			<div><p><img src="img/nav-goods-panel1.jpg" alt="">觅巢旗舰版（1299元/㎡ ）</p>
+			</div>
+			<div>
+			<p><img src="img/nav-goods-panel2.jpg" alt="">觅巢旗舰版（998元/㎡ ）</p></div>
+			<div><p><img src="img/nav-goods-panel3.jpg" alt="">觅巢旗舰版（1100元/㎡ ）</p></div>
+			<div><p><img src="img/nav-goods-panel4.jpg" alt="">觅巢旗舰版（1099元/㎡ ）</p></div>
+		</div>
+	</div>
+	<div id="aside">
+		<img src="img/jiantou_left.png" alt="">
+	</div>
+	<div id="masage-p">
+		<div class="hide"><a href="javascript:;">X</a></div>
+		<div class="img-o fl"><img src="img/time-img1.png" alt=""></div>
+		<div class="mas-inp fl" id="right-mas">
+				<img src="img/a-01.png" alt=""><span>免费获取装修报价</span>
+				<form action="">
+					<select name="" id="">
+						<option value="">北京</option>
+						<option value="">上海</option>
+						<option value="">广州</option>
+						<option value="">深圳</option>
+						<option value="">成都</option>
+						<option value="">杭州</option>
+					</select>
+					<input type="text" placeholder="请输入您房间面积                                               m²" class="mianji" id="m-t">
+					<div class="sel-o">
+					<select name="" id="">
+						<option value="">一室</option>
+						<option value="">二室</option>
+						<option value="">三室</option>
+						<option value="">四室</option>
+						<option value="">五室</option>
+					</select>
+					<select name="" id="">
+						<option value="">一厅</option>
+						<option value="">二厅</option>
+						<option value="">三厅</option>
+					</select></div>
+					<div class="sel-h">
+						<select name="" id="">
+							<option value="">一厨</option>
+							<option value="">二厨</option>
+						</select>
+						<select name="" id="">
+							<option value="">一卫</option>
+							<option value="">二卫</option>
+						</select>
+						<select name="" id="">
+							<option value="">一阳台</option>
+							<option value="">二阳台</option>
+						</select>
+					</div>
+					<div class="inp-l" id="phone">
+						<input type="text" placeholder="请输入您的手机号" id=phone-inp>
+					</div>
+					<a href="javascript:;" class="aaa" id="a-sub">开始计算</a>
+				</form>
+		</div>
+	</div>
+	<script>
+		(function (){
+			var oP=document.getElementById('phone-inp');
+			var oA=document.getElementById('a-sub');
+			var oM=document.getElementById('m-t');
+			var oBox=document.getElementById('masage-p');
+			oA.onclick=function () {
+				var str=oP.value;
+				var reg=/^1[3-9]\d{9}$/;
+				var str2=oM.value;
+				if(!reg.test(str)){
+					alert('手机格式不正确');
+				}
+				if(!str2){
+					alert('请输入房子面积')
+				}
+				if(reg.test(str) && str2){
+					oBox.style.display='none'
+				}
+			}
+		})()
+	</script>
+		<script>
+		$(function (){
+			$('#masage-p .hide').click(function (){
+				$('#masage-p').hide();
+			});
+			$('#aside').click(function (){
+				$('#masage-p').fadeIn();
+			});
+			var tid;
+			var tid=setTimeout(hide,3000);
+			function hide(){
+				$('#masage-p').hide();
+			}
+			$('#masage-p').hover(function (){
+				clearTimeout(tid);
+			},function (){
+				tid=setTimeout(hide,3000);
+			})
+		})
+	</script>
+	<div class="bside" id="to-top">
+		↑
+	</div>
+	<script>
+	(function (){
+		var oDiv=document.getElementById('to-top');
+
+		oDiv.onclick=function (){
+			
+		}
+		window.onscroll=function (){
+			var iScroll=document.documentElement.scrollTop || document.body.scrollTop;
+			if(iScroll>=150){
+				oDiv.style.display='block';
+			}else{
+				oDiv.style.display='none';
+			}
+			                oDiv.onclick=function () {
+                    /*document.documentElement.scrollTop||document.body.scrollTop;*/
+                    var start=iScroll;
+                    var end=0;
+                    var total=end-iScroll;
+                    var time=1000;
+                    var count=Math.ceil(time/30);
+                    var n=0;
+                    var timer=null;
+
+                    timer=setInterval(function () {
+                        n++;
+
+                        if(document.documentElement.scrollTop){
+                            document.documentElement.scrollTop=start+n*total/count;
+                        }else{
+                            document.body.scrollTop=start+n*total/count;
+                        }
+
+                        if(n==count){
+                            clearInterval(timer);
+                        }
+                    },10);
+                };
+		}
+	})()
+	</script>
+	<script>
+		
+	</script>
+	<script>
+		$(function (){
+			$('#new-house .house-change a').hover(function (){
+				$('.hide div').hide();
+				$('.hide div').eq($(this).index()).slideDown();
+			},function (){
+				$('.hide div').slideUp();
+				$('.hide div').slideUp();
+			})
+		})
+	</script>
+	<div id="lunbo">
+		<div class="lunbo-img">
+			<a href="javascript:;"><img src="img/banner (1).jpg" alt=""></a>
+			<a href="javascript:;"><img src="img/banner.jpg" alt=""></a>
+			<a href="javascript:;"><img src="img/banner_1.png" alt=""></a>
+			<a href="javascript:;"><img src="img/banner_2.png" alt=""></a>
+			<a href="javascript:;"><img src="img/banner_3.png" alt=""></a>
+			<a href="javascript:;"><img src="img/banner_4.png" alt=""></a>
+		</div>
+		<div class="lunbo-span clear-fix">
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<script>
+		$(function (){
+			var count=0;
+			$('#lunbo .lunbo-span span').click(function (){
+				$('#lunbo .lunbo-span span').removeClass('active');
+				$(this).addClass('active');
+				$('#lunbo .lunbo-img a').hide().eq($(this).index()).fadeIn();
+			});
+			var tid=setInterval(next,2000);
+			function next(){
+				count++;
+				$('#lunbo .lunbo-span span').removeClass('active');
+				if(count>5){
+					count=0;
+				}
+				$('#lunbo .lunbo-span span').eq(count).addClass('active');
+				$('#lunbo .lunbo-img a').hide().eq(count).fadeIn();
+			}
+			$('#lunbo').hover(function (){
+				clearInterval(tid);
+			},function (){
+				clearInterval(tid);
+				tid=setInterval(next,2000);
+			})
+		})
+	</script>
+	<div id="hot">
+		<span class="project">热们产品</span>
+		<ul class="ul clear-fix">
+			<li>
+				<span class="span1">
+					<img src="img/anli_chanp.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">觅巢旗舰版</p>
+					<p>全包让你当“甩手式”掌柜</p>
+					<span>1299元/㎡</span>
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/anli_chanp1.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">觅巢旗舰版</p>
+					<p>从毛坯到精装</p>
+					<span>799元/㎡</span>
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/anli_chanp2.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">老房改造大变身</p>
+					<p>空间利用的“不像话”</p>
+					<span>799元/㎡</span>
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/anli_chanp3.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">Me colors 樱花粉</p>
+					<p>粉色欧铂纯洁者，比生活更interest</p>
+					<span>1099元/㎡</span>
+				</span>
+			</li>
+		</ul>
+	</div>
+	<script>
+		$(function (){
+			$('#hot .ul li').hover(function (){
+				$('#hot .ul li .show').slideUp().eq($(this).index()).slideDown();
+			},function (){
+				$('#hot .ul li .show').eq($(this).index()).slideUp();
+			})
+		})
+	</script>
+	<div id="hot-o">
+		<span class="project">VR</span>
+		<div class="vr clear-fix">
+			<a href="javascript:;"><img src="img/vr_donghua.jpg" alt="" class=".img"></a>
+		</div>
+		<ul class="clear-fix">
+			<li class="li-first">
+				<span class="span1">
+					<img src="img/anli_chanp.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">简约风格，实景VR</p>
+					<p>给你带来前卫，不受拘束的感觉</p>
+					<!-- <span>1299元/㎡</span> -->
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/l1.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">北欧风格样板房VR</p>
+					<p>自然清新的北欧风格，颜色随意搭配，整洁舒心</p>
+					
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/l2.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">办公区工装实景VR</p>
+					<p>内外通透、办公动线合理排布，让身在其中的人有积极向上的生活</p>
+					
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/l3.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">日式风格样板房实景VR</p>
+					<p>就想日漫里的夏天，光着脚在田野间奔跑，下小溪边嬉戏</p>
+					
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/l4.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">酒店工装样板实景VR</p>
+					<p>追求典雅豪华，处处强调为人服务的主题元素。</p>
+					
+				</span>
+			</li>
+			<li>
+				<span class="span1">
+					<img src="img/l5.jpg" alt="">
+					<span class="show">
+						<p><a href="javascript:;">0元抢免费设计></a></p>
+					</span>
+					<p class="p-o">黎锦苑水电样板工地VR</p>
+					<p>全包让你当“甩手式”掌柜</p>
+				</span>
+			</li>
+		</ul>
+	</div>
+	<script>
+		$(function (){
+			$('#hot-o ul li').hover(function (){
+				$('#hot-o ul li .show').hide().eq($(this).index()).show();
+			},function (){
+				$('#hot-o ul li .show').eq($(this).index()).hide();
+			})
+		})
+	</script>
+	<footer>
+		<div>
+			<p>友情链接</p>
+			<hr>
+		</div>
+		<ul>
+			<li><span>公司地址</span><span>网站地图</span><span>售后保障</span><span>联系我们</span></li>
+			<li>公司地址:北京市朝阳区望京园601号悠乐汇E座3层</li>
+			<li>免责声明：本网站部分内容由用户自行上传，如权利人发现存在误传其作品情形，请及时与本站联系</li>	
+		</ul>
+		<p class="clear-fix"><img src="img/erweima.png" alt="" class="fr"></p>
+	</footer>
+</body>
+</html>
